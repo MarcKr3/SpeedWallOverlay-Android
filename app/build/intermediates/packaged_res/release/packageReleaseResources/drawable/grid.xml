@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="60dp"
+    android:height="300dp"
+    android:viewportWidth="800"
+    android:viewportHeight="4000">
+    <path
+        android:pathData="M400.0,0.0 L404.0,0.0 L404.0,4000.0 L400.0,4000.0 Z"
+        android:fillColor="#FF000000" />
+    <group android:name="g33">
+        <path
+            android:pathData="M0.0,400.0 L800.0,400.0 L800.0,404.0 L0.0,404.0 Z"
+            android:fillColor="#FF000000" />
+        <path
+            android:pathData="M0.0,800.0 L800.0,800.0 L800.0,804.0 L0.0,804.0 Z"
+            android:fillColor="#FF000000" />
+        <path
+            android:pathData="M0.0,1200.0 L800.0,1200.0 L800.0,1204.0 L0.0,1204.0 Z"
+            android:fillColor="#FF000000" />
+        <path
+            android:pathData="M0.0,1600.0 L800.0,1600.0 L800.0,1604.0 L0.0,1604.0 Z"
+            android:fillColor="#FF000000" />
+        <path
+            android:pathData="M0.0,2000.0 L800.0,2000.0 L800.0,2004.0 L0.0,2004.0 Z"
+            android:fillColor="#FF000000" />
+        <path
+            android:pathData="M0.0,2400.0 L800.0,2400.0 L800.0,2404.0 L0.0,2404.0 Z"
+            android:fillColor="#FF000000" />
+        <path
+            android:pathData="M0.0,2800.0 L800.0,2800.0 L800.0,2804.0 L0.0,2804.0 Z"
+            android:fillColor="#FF000000" />
+        <path
+            android:pathData="M0.0,3200.0 L800.0,3200.0 L800.0,3204.0 L0.0,3204.0 Z"
+            android:fillColor="#FF000000" />
+        <path
+            android:pathData="M0.0,3600.0 L800.0,3600.0 L800.0,3604.0 L0.0,3604.0 Z"
+            android:fillColor="#FF000000" />
+    </group>
+</vector>

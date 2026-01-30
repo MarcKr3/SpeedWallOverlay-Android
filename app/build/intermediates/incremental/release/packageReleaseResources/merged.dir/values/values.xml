@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="banner_background">#B3000000</color>
+    <color name="calibration_yellow">#FFFFEB3B</color>
+    <color name="green">#FF4CAF50</color>
+    <color name="overlay_default">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#FFFFEB3B</color>
+    <string name="about_description">1. Calibrate to a known distance\n\n2. Speed-Route Overlay for easy setup.</string>
+    <string name="about_title">SpeedWall Overlay</string>
+    <string name="about_version">Version 1.0</string>
+    <string name="app_name">SpeedWallOverlay</string>
+    <string name="calibration_complete">Calibration complete!</string>
+    <string name="camera_permission_required">Camera permission is required</string>
+    <string name="cancel">Cancel</string>
+    <string name="close">Close</string>
+    <string name="confirm">Confirm</string>
+    <string name="continue_label">Continue</string>
+    <string name="distance_hint">Distance</string>
+    <string name="double_tap_hint">Double-tap to hide controls</string>
+    <string name="enter_distance">Enter the distance between points</string>
+    <string name="enter_known_distance">Enter Known Distance</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="reset">Reset</string>
+    <string name="screenshot_failed">Screenshot failed</string>
+    <string name="screenshot_saved">Screenshot saved</string>
+    <string name="take_screenshot">Take screenshot</string>
+    <string name="tap_first_point">Tap first point of known distance</string>
+    <string name="tap_second_point">Tap second point</string>
+    <style name="Theme.SpeedWallOverlay" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+</resources>
