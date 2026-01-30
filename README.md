@@ -6,7 +6,7 @@ Freely select the section You want to set.
 
 ## Demo
 
-https://github.com/user-attachments/assets/3c7d8450-863c-40fa-a34f-b85304907bf5
+https://github.com/user-attachments/assets/1d5921c6-44d1-4f19-ada0-a5b633311d99
 
 ## Features
 
