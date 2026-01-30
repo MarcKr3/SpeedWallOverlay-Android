@@ -1,11 +1,15 @@
 package com.speedwall.overlay.ui
 
+import android.app.Activity
 import android.content.ContentValues
 import android.content.Context
 import android.graphics.Bitmap
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
+import android.os.Handler
+import android.os.Looper
+import android.view.PixelCopy
 import android.widget.Toast
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -22,6 +26,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredHeight
+import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -40,6 +46,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -51,6 +58,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
@@ -64,7 +72,10 @@ import com.speedwall.overlay.sensor.MotionManager
 import com.speedwall.overlay.state.AppMode
 import com.speedwall.overlay.state.AppState
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
 import java.io.OutputStream
+import kotlin.coroutines.resume
 import kotlin.math.min
 import kotlin.math.max
 import kotlin.math.roundToInt
@@ -109,6 +120,16 @@ fun OverlayScreen(
     var screenWidth by remember { mutableStateOf(0f) }
     var screenHeight by remember { mutableStateOf(0f) }
     var showColorPicker by remember { mutableStateOf(false) }
+    val coroutineScope = rememberCoroutineScope()
+
+    fun clampOffset() {
+        val minVisibleX = kotlin.math.min(screenWidth, renderedWidth) / 3f
+        val maxX = (screenWidth + renderedWidth) / 2f - minVisibleX
+        offsetX = offsetX.coerceIn(-maxX, maxX)
+        val minVisibleY = kotlin.math.min(screenHeight, renderedHeight) / 3f
+        val maxY = (screenHeight + renderedHeight) / 2f - minVisibleY
+        offsetY = offsetY.coerceIn(-maxY, maxY)
+    }
 
     // Start/stop motion manager based on mode and autoLevel
     LaunchedEffect(mode, autoLevel) {
@@ -122,16 +143,17 @@ fun OverlayScreen(
     // Set initial position when entering overlay mode
     LaunchedEffect(mode) {
         if (mode is AppMode.Overlay) {
-            offsetY = screenHeight / 3f - renderedHeight / 2f
+            offsetX = 0f
+            offsetY = 0f
+            clampOffset()
         }
     }
 
-    fun clampOffset() {
-        val margin = 100f
-        val maxX = (screenWidth + renderedWidth) / 2f - margin
-        offsetX = offsetX.coerceIn(-maxX, maxX)
-        val maxY = (screenHeight + renderedHeight) / 2f - margin
-        offsetY = offsetY.coerceIn(-maxY, maxY)
+    // Re-clamp when screen size changes
+    LaunchedEffect(screenWidth, screenHeight) {
+        if (screenWidth > 0f && screenHeight > 0f) {
+            clampOffset()
+        }
     }
 
     Box(
@@ -175,6 +197,8 @@ fun OverlayScreen(
         ) {
             Box(
                 modifier = Modifier
+                    .requiredWidth(with(density) { renderedWidth.toDp() })
+                    .requiredHeight(with(density) { renderedHeight.toDp() })
                     .graphicsLayer {
                         translationX = offsetX + dragOffsetX
                         translationY = offsetY + dragOffsetY
@@ -188,20 +212,19 @@ fun OverlayScreen(
                 androidx.compose.foundation.Image(
                     painter = painterResource(R.drawable.overlay),
                     contentDescription = "Speed wall overlay",
+                    contentScale = ContentScale.FillBounds,
                     colorFilter = ColorFilter.tint(overlayColor),
-                    modifier = Modifier
-                        .width(with(density) { renderedWidth.toDp() })
-                        .height(with(density) { renderedHeight.toDp() })
+                    modifier = Modifier.fillMaxSize()
                 )
 
                 // Grid layer
                 androidx.compose.foundation.Image(
                     painter = painterResource(R.drawable.grid),
                     contentDescription = "Grid overlay",
+                    contentScale = ContentScale.FillBounds,
                     colorFilter = ColorFilter.tint(overlayColor),
                     modifier = Modifier
-                        .width(with(density) { renderedWidth.toDp() })
-                        .height(with(density) { renderedHeight.toDp() })
+                        .fillMaxSize()
                         .alpha(if (showGrid) 1f else 0.01f)
                 )
 
@@ -209,10 +232,10 @@ fun OverlayScreen(
                 androidx.compose.foundation.Image(
                     painter = painterResource(R.drawable.labels),
                     contentDescription = "Labels overlay",
+                    contentScale = ContentScale.FillBounds,
                     colorFilter = ColorFilter.tint(overlayColor),
                     modifier = Modifier
-                        .width(with(density) { renderedWidth.toDp() })
-                        .height(with(density) { renderedHeight.toDp() })
+                        .fillMaxSize()
                         .alpha(if (showLabels) 1f else 0.01f)
                 )
             }
@@ -253,7 +276,7 @@ fun OverlayScreen(
                     )
                 }
 
-                Row(horizontalArrangement = Arrangement.spacedBy(1.dp)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     // Color picker button
                     Box(
                         modifier = Modifier
@@ -365,8 +388,15 @@ fun OverlayScreen(
                             .clip(CircleShape)
                             .border(3.dp, Color.White, CircleShape)
                             .clickable {
-                                takeScreenshot(context, cameraManager, showControls) { flash ->
-                                    showFlash = flash
+                                showControls = false
+                                showColorPicker = false
+                                coroutineScope.launch {
+                                    delay(100)
+                                    takeScreenshotPixelCopy(context) { flash ->
+                                        showFlash = flash
+                                    }
+                                    delay(200)
+                                    showControls = true
                                 }
                             },
                         contentAlignment = Alignment.Center
@@ -413,18 +443,18 @@ fun OverlayScreen(
                         value = horizontalTilt.toFloat(),
                         onValueChange = { appState.setHorizontalTilt(it.toDouble()) },
                         valueRange = -45f..45f,
-                        steps = 179,
                         colors = SliderDefaults.colors(
-                            thumbColor = Color.Yellow,
-                            activeTrackColor = Color.Yellow
+                            thumbColor = Color.White,
+                            activeTrackColor = Color.White,
+                            inactiveTrackColor = Color.White.copy(alpha = 0.3f)
                         ),
                         modifier = Modifier.weight(1f)
                     )
                     IconButton(
                         onClick = { appState.setHorizontalTilt(0.0) },
-                        modifier = Modifier.size(24.dp)
+                        modifier = Modifier.size(40.dp)
                     ) {
-                        Text("↺", color = Color.White, fontSize = 14.sp)
+                        Text("↺", color = Color.White, fontSize = 18.sp)
                     }
                 }
 
@@ -439,18 +469,18 @@ fun OverlayScreen(
                         value = verticalTilt.toFloat(),
                         onValueChange = { appState.setVerticalTilt(it.toDouble()) },
                         valueRange = -45f..45f,
-                        steps = 179,
                         colors = SliderDefaults.colors(
-                            thumbColor = Color.Yellow,
-                            activeTrackColor = Color.Yellow
+                            thumbColor = Color.White,
+                            activeTrackColor = Color.White,
+                            inactiveTrackColor = Color.White.copy(alpha = 0.3f)
                         ),
                         modifier = Modifier.weight(1f)
                     )
                     IconButton(
                         onClick = { appState.setVerticalTilt(0.0) },
-                        modifier = Modifier.size(24.dp)
+                        modifier = Modifier.size(40.dp)
                     ) {
-                        Text("↺", color = Color.White, fontSize = 14.sp)
+                        Text("↺", color = Color.White, fontSize = 18.sp)
                     }
                 }
 
@@ -467,18 +497,40 @@ fun OverlayScreen(
     }
 }
 
-private fun takeScreenshot(
+private suspend fun takeScreenshotPixelCopy(
     context: Context,
-    cameraManager: CameraManager,
-    showControls: Boolean,
     onFlash: (Boolean) -> Unit
 ) {
-    val frame = cameraManager.latestFrame ?: return
+    val activity = context as? Activity ?: return
+    val window = activity.window ?: return
+    val view = window.decorView
+    val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
 
-    // Create a composite bitmap
-    val bitmap = frame.copy(Bitmap.Config.ARGB_8888, true)
+    val success = suspendCancellableCoroutine { cont ->
+        PixelCopy.request(
+            window,
+            bitmap,
+            { result -> cont.resume(result == PixelCopy.SUCCESS) },
+            Handler(Looper.getMainLooper())
+        )
+    }
 
-    // Save to gallery using MediaStore
+    if (!success) {
+        Toast.makeText(context, "Screenshot failed", Toast.LENGTH_SHORT).show()
+        bitmap.recycle()
+        return
+    }
+
+    saveBitmapToGallery(context, bitmap)
+
+    // Flash effect
+    onFlash(true)
+    Handler(Looper.getMainLooper()).postDelayed({
+        onFlash(false)
+    }, 150)
+}
+
+private fun saveBitmapToGallery(context: Context, bitmap: Bitmap) {
     val filename = "SpeedWall_${System.currentTimeMillis()}.png"
     val contentValues = ContentValues().apply {
         put(MediaStore.Images.Media.DISPLAY_NAME, filename)
@@ -505,10 +557,4 @@ private fun takeScreenshot(
     }
 
     bitmap.recycle()
-
-    // Flash effect
-    onFlash(true)
-    android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-        onFlash(false)
-    }, 150)
 }

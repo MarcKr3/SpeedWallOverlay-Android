@@ -1,0 +1,37 @@
+R_DEF: Internal format may change without notice
+local
+color banner_background
+color calibration_yellow
+color green
+color overlay_default
+color white
+color yellow
+drawable grid
+drawable ic_launcher_background
+drawable labels
+drawable overlay
+mipmap ic_launcher
+mipmap ic_launcher_foreground
+mipmap ic_launcher_round
+string about_description
+string about_title
+string about_version
+string app_name
+string calibration_complete
+string camera_permission_required
+string cancel
+string close
+string confirm
+string continue_label
+string distance_hint
+string double_tap_hint
+string enter_distance
+string enter_known_distance
+string grant_permission
+string reset
+string screenshot_failed
+string screenshot_saved
+string take_screenshot
+string tap_first_point
+string tap_second_point
+style Theme.SpeedWallOverlay

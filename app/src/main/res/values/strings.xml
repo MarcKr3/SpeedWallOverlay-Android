@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SpeedWall Overlay</string>
+    <string name="app_name">SpeedWallOverlay</string>
     <string name="tap_first_point">Tap first point of known distance</string>
     <string name="tap_second_point">Tap second point</string>
     <string name="enter_distance">Enter the distance between points</string>

@@ -1,0 +1,62 @@
+com.speedwall.overlay.app-emoji2-1.3.0-0 /Users/mk/.gradle/caches/8.13/transforms/02019981aac4d064fc2447676830fd90/transformed/emoji2-1.3.0/res
+com.speedwall.overlay.app-lifecycle-runtime-compose-release-1 /Users/mk/.gradle/caches/8.13/transforms/07a1650f8631282d2ff7ec3a73a463c0/transformed/lifecycle-runtime-compose-release/res
+com.speedwall.overlay.app-ui-release-2 /Users/mk/.gradle/caches/8.13/transforms/0f944ccc61552b7880c45ebe15e6b70e/transformed/ui-release/res
+com.speedwall.overlay.app-material-release-3 /Users/mk/.gradle/caches/8.13/transforms/1d084b47b31234389f5e7a282c83fddb/transformed/material-release/res
+com.speedwall.overlay.app-activity-ktx-1.9.3-4 /Users/mk/.gradle/caches/8.13/transforms/1f5ca517ffc63a474466661bb2bec87a/transformed/activity-ktx-1.9.3/res
+com.speedwall.overlay.app-runtime-release-5 /Users/mk/.gradle/caches/8.13/transforms/21e11302ac3b8d9fe870a80b87345ef6/transformed/runtime-release/res
+com.speedwall.overlay.app-camera-camera2-1.4.1-6 /Users/mk/.gradle/caches/8.13/transforms/283d10c37af8b356c4661d19401ceaef/transformed/camera-camera2-1.4.1/res
+com.speedwall.overlay.app-ui-geometry-release-7 /Users/mk/.gradle/caches/8.13/transforms/298838c09717035c63a3eaee6056694b/transformed/ui-geometry-release/res
+com.speedwall.overlay.app-core-ktx-1.15.0-8 /Users/mk/.gradle/caches/8.13/transforms/2d81721e2c46fc2775e001662b11a3c9/transformed/core-ktx-1.15.0/res
+com.speedwall.overlay.app-foundation-layout-release-9 /Users/mk/.gradle/caches/8.13/transforms/313f50003d3b7d5ff1a21c24583ec286/transformed/foundation-layout-release/res
+com.speedwall.overlay.app-ui-graphics-release-10 /Users/mk/.gradle/caches/8.13/transforms/32830b5b273d70f10bc580771746c5af/transformed/ui-graphics-release/res
+com.speedwall.overlay.app-annotation-experimental-1.4.1-11 /Users/mk/.gradle/caches/8.13/transforms/32a0535939377e3a9b38cfb719f73a82/transformed/annotation-experimental-1.4.1/res
+com.speedwall.overlay.app-material-ripple-release-12 /Users/mk/.gradle/caches/8.13/transforms/34bcf4bfc14ef85c548a69bca42aa4ec/transformed/material-ripple-release/res
+com.speedwall.overlay.app-runtime-saveable-release-13 /Users/mk/.gradle/caches/8.13/transforms/35270ba4957eb847c2a4b53758a9cc09/transformed/runtime-saveable-release/res
+com.speedwall.overlay.app-ui-tooling-release-14 /Users/mk/.gradle/caches/8.13/transforms/36647e89a0ef74c741d1320a6fcf3a23/transformed/ui-tooling-release/res
+com.speedwall.overlay.app-material-icons-core-release-15 /Users/mk/.gradle/caches/8.13/transforms/44cbd80073962955e439116c7d884dbd/transformed/material-icons-core-release/res
+com.speedwall.overlay.app-lifecycle-livedata-2.8.7-16 /Users/mk/.gradle/caches/8.13/transforms/469f538d4ab4ba17e7f6a842b990037a/transformed/lifecycle-livedata-2.8.7/res
+com.speedwall.overlay.app-lifecycle-runtime-release-17 /Users/mk/.gradle/caches/8.13/transforms/475167c4544656e309399cce4b731df0/transformed/lifecycle-runtime-release/res
+com.speedwall.overlay.app-lifecycle-viewmodel-compose-release-18 /Users/mk/.gradle/caches/8.13/transforms/53c9b79e0e1b81210eaa0358ca1d9083/transformed/lifecycle-viewmodel-compose-release/res
+com.speedwall.overlay.app-core-1.15.0-19 /Users/mk/.gradle/caches/8.13/transforms/56c6e5904d3ce17fe88372130c833d21/transformed/core-1.15.0/res
+com.speedwall.overlay.app-lifecycle-viewmodel-ktx-2.8.7-20 /Users/mk/.gradle/caches/8.13/transforms/62fb1d2120ea51506aa43667e3b7a2c2/transformed/lifecycle-viewmodel-ktx-2.8.7/res
+com.speedwall.overlay.app-camera-view-1.4.1-21 /Users/mk/.gradle/caches/8.13/transforms/641bac908b5643799b5fd28b93c3e79e/transformed/camera-view-1.4.1/res
+com.speedwall.overlay.app-savedstate-1.2.1-22 /Users/mk/.gradle/caches/8.13/transforms/64b0c21aa3f9c23e4da46b5762938a1e/transformed/savedstate-1.2.1/res
+com.speedwall.overlay.app-customview-poolingcontainer-1.0.0-23 /Users/mk/.gradle/caches/8.13/transforms/67e31f829a9d5a0d47d53bd40f222f83/transformed/customview-poolingcontainer-1.0.0/res
+com.speedwall.overlay.app-core-runtime-2.2.0-24 /Users/mk/.gradle/caches/8.13/transforms/68c555210884e3bff722d72af2850ea4/transformed/core-runtime-2.2.0/res
+com.speedwall.overlay.app-lifecycle-viewmodel-release-25 /Users/mk/.gradle/caches/8.13/transforms/6bdb6afc917b7a39f5c9de620f9179d2/transformed/lifecycle-viewmodel-release/res
+com.speedwall.overlay.app-profileinstaller-1.3.1-26 /Users/mk/.gradle/caches/8.13/transforms/6c27e591904b2c2078eb049e8ad7315e/transformed/profileinstaller-1.3.1/res
+com.speedwall.overlay.app-appcompat-1.1.0-27 /Users/mk/.gradle/caches/8.13/transforms/82b3a3154a0f34bc9fd2cd4a10ad7abe/transformed/appcompat-1.1.0/res
+com.speedwall.overlay.app-appcompat-resources-1.1.0-28 /Users/mk/.gradle/caches/8.13/transforms/8f9cdaab002b88333730a121e6b958a1/transformed/appcompat-resources-1.1.0/res
+com.speedwall.overlay.app-lifecycle-viewmodel-savedstate-2.8.7-29 /Users/mk/.gradle/caches/8.13/transforms/91b922bc202e3d05a13bee511527a339/transformed/lifecycle-viewmodel-savedstate-2.8.7/res
+com.speedwall.overlay.app-lifecycle-process-2.8.7-30 /Users/mk/.gradle/caches/8.13/transforms/950a33b7877347e29690abc3f1cc29a5/transformed/lifecycle-process-2.8.7/res
+com.speedwall.overlay.app-savedstate-ktx-1.2.1-31 /Users/mk/.gradle/caches/8.13/transforms/983c8978d3ea74bcec4fdce622eceaed/transformed/savedstate-ktx-1.2.1/res
+com.speedwall.overlay.app-foundation-release-32 /Users/mk/.gradle/caches/8.13/transforms/a6ddb030f267d140e1c9dd74017390c9/transformed/foundation-release/res
+com.speedwall.overlay.app-activity-compose-1.9.3-33 /Users/mk/.gradle/caches/8.13/transforms/aab3758b298f04f73d4234d536d5cf3a/transformed/activity-compose-1.9.3/res
+com.speedwall.overlay.app-activity-1.9.3-34 /Users/mk/.gradle/caches/8.13/transforms/abfa4b6cb00a80feb6d969fd0743b819/transformed/activity-1.9.3/res
+com.speedwall.overlay.app-ui-tooling-data-release-35 /Users/mk/.gradle/caches/8.13/transforms/ad46722c07c906b464f695d62e8d6971/transformed/ui-tooling-data-release/res
+com.speedwall.overlay.app-startup-runtime-1.1.1-36 /Users/mk/.gradle/caches/8.13/transforms/b6c6b043ae0182e0e8f2e4a82a6dc06c/transformed/startup-runtime-1.1.1/res
+com.speedwall.overlay.app-ui-test-manifest-1.7.6-37 /Users/mk/.gradle/caches/8.13/transforms/bbb9886be4329d0510b440eb6bf31853/transformed/ui-test-manifest-1.7.6/res
+com.speedwall.overlay.app-animation-core-release-38 /Users/mk/.gradle/caches/8.13/transforms/bd50d0741e5c5af663822f3cb0dea699/transformed/animation-core-release/res
+com.speedwall.overlay.app-lifecycle-runtime-ktx-release-39 /Users/mk/.gradle/caches/8.13/transforms/becb7fd11cb19681e9587b01e8fbf736/transformed/lifecycle-runtime-ktx-release/res
+com.speedwall.overlay.app-lifecycle-livedata-core-2.8.7-40 /Users/mk/.gradle/caches/8.13/transforms/bede3c789fdaa5d23ca396ee6820693f/transformed/lifecycle-livedata-core-2.8.7/res
+com.speedwall.overlay.app-ui-unit-release-41 /Users/mk/.gradle/caches/8.13/transforms/c3c4a438495b71cf96992db8fd99b8b9/transformed/ui-unit-release/res
+com.speedwall.overlay.app-camera-lifecycle-1.4.1-42 /Users/mk/.gradle/caches/8.13/transforms/c4aa0ffadff64c251b6dd7451f4293cb/transformed/camera-lifecycle-1.4.1/res
+com.speedwall.overlay.app-lifecycle-livedata-core-ktx-2.8.7-43 /Users/mk/.gradle/caches/8.13/transforms/c8ab74e79865637a31215a6865ee3015/transformed/lifecycle-livedata-core-ktx-2.8.7/res
+com.speedwall.overlay.app-ui-tooling-preview-release-44 /Users/mk/.gradle/caches/8.13/transforms/cc219479b0b6a5d0d76005b1fea4ead4/transformed/ui-tooling-preview-release/res
+com.speedwall.overlay.app-material3-release-45 /Users/mk/.gradle/caches/8.13/transforms/ccc752bddc52f50b5a3119d7bc0b2c60/transformed/material3-release/res
+com.speedwall.overlay.app-camera-video-1.4.1-46 /Users/mk/.gradle/caches/8.13/transforms/d43fa39c4912039f0c695a1089dad192/transformed/camera-video-1.4.1/res
+com.speedwall.overlay.app-material-icons-extended-release-47 /Users/mk/.gradle/caches/8.13/transforms/dff6ad1f26027cecf432649f6fb72232/transformed/material-icons-extended-release/res
+com.speedwall.overlay.app-ui-util-release-48 /Users/mk/.gradle/caches/8.13/transforms/e159732513a684222c3acf19f0daf64b/transformed/ui-util-release/res
+com.speedwall.overlay.app-graphics-path-1.0.1-49 /Users/mk/.gradle/caches/8.13/transforms/ea7e9201f8cd3920d44836756c0d3f93/transformed/graphics-path-1.0.1/res
+com.speedwall.overlay.app-camera-core-1.4.1-50 /Users/mk/.gradle/caches/8.13/transforms/ee0bcad0572b975cfd0d2655e44e0453/transformed/camera-core-1.4.1/res
+com.speedwall.overlay.app-animation-release-51 /Users/mk/.gradle/caches/8.13/transforms/ee0bd633b1175b9b1df20f4c6698e565/transformed/animation-release/res
+com.speedwall.overlay.app-tracing-ktx-1.2.0-52 /Users/mk/.gradle/caches/8.13/transforms/f2430ad10961c7214b02e5731fcbe9ff/transformed/tracing-ktx-1.2.0/res
+com.speedwall.overlay.app-tracing-1.2.0-53 /Users/mk/.gradle/caches/8.13/transforms/f9b47b2ab67fa1b869d70158ac1ecc9b/transformed/tracing-1.2.0/res
+com.speedwall.overlay.app-ui-text-release-54 /Users/mk/.gradle/caches/8.13/transforms/fd3c95c072dc8ec2a83158e7aa49d27a/transformed/ui-text-release/res
+com.speedwall.overlay.app-resValues-55 /Users/mk/Desktop/SpeedWall Overlay - Android/app/build/generated/res/resValues/debug
+com.speedwall.overlay.app-updated_navigation_xml-56 /Users/mk/Desktop/SpeedWall Overlay - Android/app/build/generated/updated_navigation_xml/debug
+com.speedwall.overlay.app-packageDebugResources-57 /Users/mk/Desktop/SpeedWall Overlay - Android/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.speedwall.overlay.app-packageDebugResources-58 /Users/mk/Desktop/SpeedWall Overlay - Android/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.speedwall.overlay.app-debug-59 /Users/mk/Desktop/SpeedWall Overlay - Android/app/build/intermediates/merged_res/debug/mergeDebugResources
+com.speedwall.overlay.app-debug-60 /Users/mk/Desktop/SpeedWall Overlay - Android/app/src/debug/res
+com.speedwall.overlay.app-main-61 /Users/mk/Desktop/SpeedWall Overlay - Android/app/src/main/res

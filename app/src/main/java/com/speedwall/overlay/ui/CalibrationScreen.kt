@@ -25,12 +25,12 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
@@ -50,13 +50,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -64,12 +65,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.runtime.rememberUpdatedState
 import com.speedwall.overlay.state.AppState
 import com.speedwall.overlay.state.CalibrationState
 import com.speedwall.overlay.state.DistanceUnit
 import kotlinx.coroutines.delay
 import kotlin.math.atan2
+import kotlin.math.cos
+import kotlin.math.sin
 import kotlin.math.roundToInt
+
+private val CalibrationAccent = Color(0xFFFFA726)
 
 @Composable
 fun CalibrationScreen(appState: AppState) {
@@ -87,6 +93,10 @@ fun CalibrationScreen(appState: AppState) {
     var lineDragOffset by remember { mutableStateOf(Offset.Zero) }
     var showCompleteBanner by remember { mutableStateOf(false) }
     var showAbout by remember { mutableStateOf(false) }
+    var labelSize by remember { mutableStateOf(IntSize.Zero) }
+
+    // Keep a fresh reference for use inside non-restarting pointerInput blocks
+    val currentCalibrationPoints by rememberUpdatedState(calibrationPoints)
 
     // Show complete banner briefly
     LaunchedEffect(calibrationState) {
@@ -144,7 +154,7 @@ fun CalibrationScreen(appState: AppState) {
             val p2 = displayPosition(1, calibrationPoints[1])
             Canvas(modifier = Modifier.fillMaxSize()) {
                 drawLine(
-                    color = Color.Yellow,
+                    color = CalibrationAccent,
                     start = p1,
                     end = p2,
                     strokeWidth = 3f,
@@ -163,33 +173,39 @@ fun CalibrationScreen(appState: AppState) {
                 atan2((p2.y - p1.y).toDouble(), (p2.x - p1.x).toDouble())
             ).toFloat()
             val correctedAngle = if (angleDeg > 90f || angleDeg < -90f) angleDeg + 180f else angleDeg
-            val density = LocalDensity.current
+            val updatedCorrectedAngle by rememberUpdatedState(correctedAngle)
 
             Box(
                 modifier = Modifier
+                    .onSizeChanged { labelSize = it }
                     .offset {
                         IntOffset(
-                            (midX - with(density) { 40.dp.toPx() }).roundToInt(),
-                            (midY - with(density) { 14.dp.toPx() }).roundToInt()
+                            (midX - labelSize.width / 2f).roundToInt(),
+                            (midY - labelSize.height / 2f).roundToInt()
                         )
                     }
-                    .rotate(correctedAngle)
+                    .graphicsLayer { rotationZ = correctedAngle }
                     .clip(RoundedCornerShape(14.dp))
-                    .background(Color.Yellow)
+                    .background(CalibrationAccent)
                     .clickable { showDistanceInput = true }
                     .pointerInput(Unit) {
                         detectDragGestures(
                             onDragStart = { draggingLine = true },
                             onDrag = { change, dragAmount ->
                                 change.consume()
+                                val angleRad = Math.toRadians(updatedCorrectedAngle.toDouble())
+                                val cosA = cos(angleRad).toFloat()
+                                val sinA = sin(angleRad).toFloat()
+                                val screenDx = dragAmount.x * cosA - dragAmount.y * sinA
+                                val screenDy = dragAmount.x * sinA + dragAmount.y * cosA
                                 lineDragOffset = Offset(
-                                    lineDragOffset.x + dragAmount.x,
-                                    lineDragOffset.y + dragAmount.y
+                                    lineDragOffset.x + screenDx,
+                                    lineDragOffset.y + screenDy
                                 )
                             },
                             onDragEnd = {
-                                for (i in calibrationPoints.indices) {
-                                    val old = calibrationPoints[i]
+                                for (i in currentCalibrationPoints.indices) {
+                                    val old = currentCalibrationPoints[i]
                                     appState.updatePointPosition(
                                         i, Offset(old.x + lineDragOffset.x, old.y + lineDragOffset.y)
                                     )
@@ -218,6 +234,7 @@ fun CalibrationScreen(appState: AppState) {
         // Calibration point markers
         calibrationPoints.forEachIndexed { index, point ->
             val displayPos = displayPosition(index, point)
+            val currentPoint by rememberUpdatedState(point)
             Box(
                 modifier = Modifier
                     .offset {
@@ -242,7 +259,7 @@ fun CalibrationScreen(appState: AppState) {
                                     onDragEnd = {
                                         appState.updatePointPosition(
                                             index,
-                                            Offset(point.x + pointDragOffset.x, point.y + pointDragOffset.y)
+                                            Offset(currentPoint.x + pointDragOffset.x, currentPoint.y + pointDragOffset.y)
                                         )
                                         draggingPointIndex = null
                                         pointDragOffset = Offset.Zero
@@ -342,7 +359,7 @@ fun CalibrationScreen(appState: AppState) {
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50)),
                         modifier = Modifier.widthIn(min = 130.dp)
                     ) {
-                        Icon(Icons.Default.ArrowForward, null, modifier = Modifier.size(18.dp))
+                        Icon(Icons.AutoMirrored.Filled.ArrowForward, null, modifier = Modifier.size(18.dp))
                         Spacer(modifier = Modifier.width(6.dp))
                         Text("Continue", fontWeight = FontWeight.Bold, color = Color.White)
                     }
@@ -382,7 +399,7 @@ fun CalibrationScreen(appState: AppState) {
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Spacer(Modifier.height(12.dp))
-                        Divider()
+                        HorizontalDivider()
                         Spacer(Modifier.height(8.dp))
                         Text("Version 1.0", fontSize = 12.sp,
                             color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -424,12 +441,12 @@ private fun CalibrationPointMarker(number: Int) {
     Box(contentAlignment = Alignment.Center, modifier = Modifier.size(24.dp)) {
         Canvas(modifier = Modifier.size(24.dp)) {
             val c = center
-            drawCircle(Color.Yellow.copy(alpha = 0.3f), radius = 11.dp.toPx(), center = c)
-            drawCircle(Color.Yellow, radius = 12.5f.dp.toPx(), center = c,
+            drawCircle(CalibrationAccent.copy(alpha = 0.3f), radius = 11.dp.toPx(), center = c)
+            drawCircle(CalibrationAccent, radius = 12.5f.dp.toPx(), center = c,
                 style = Stroke(width = 1.5f.dp.toPx()))
-            drawLine(Color.Yellow, Offset(c.x, c.y - 5.dp.toPx()),
+            drawLine(CalibrationAccent, Offset(c.x, c.y - 5.dp.toPx()),
                 Offset(c.x, c.y + 5.dp.toPx()), strokeWidth = 1.dp.toPx())
-            drawLine(Color.Yellow, Offset(c.x - 5.dp.toPx(), c.y),
+            drawLine(CalibrationAccent, Offset(c.x - 5.dp.toPx(), c.y),
                 Offset(c.x + 5.dp.toPx(), c.y), strokeWidth = 1.dp.toPx())
         }
         Box(
@@ -439,7 +456,7 @@ private fun CalibrationPointMarker(number: Int) {
                 .offset(x = 4.dp, y = (-4).dp)
                 .size(14.dp)
                 .clip(CircleShape)
-                .background(Color.Yellow)
+                .background(CalibrationAccent)
         ) {
             Text("$number", fontSize = 7.sp, fontWeight = FontWeight.Bold, color = Color.Black)
         }

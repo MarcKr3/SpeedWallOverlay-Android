@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import java.util.Locale
 import kotlin.math.sqrt
 
 data class CalibrationPoint(
@@ -186,9 +185,6 @@ class AppState : ViewModel() {
     }
 
     companion object {
-        private fun defaultUnit(): DistanceUnit {
-            val country = Locale.getDefault().country.uppercase()
-            return if (country in setOf("US", "LR", "MM")) DistanceUnit.FEET else DistanceUnit.METERS
-        }
+        private fun defaultUnit(): DistanceUnit = DistanceUnit.METERS
     }
 }

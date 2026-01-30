@@ -49,10 +49,10 @@ class MotionManager(context: Context) : SensorEventListener {
         if (event == null || event.sensor.type != Sensor.TYPE_GRAVITY) return
         val gx = event.values[0].toDouble()
         val gy = event.values[1].toDouble()
-        // atan2(gravity.x, -gravity.y) — same as iOS
-        val raw = atan2(gx, -gy)
+        // Android gravity.y is positive when upright (opposite sign from iOS)
+        val raw = atan2(gx, gy)
         smoothedRoll += (raw - smoothedRoll) * smoothing
-        _rollCorrectionDegrees.value = Math.toDegrees(-smoothedRoll).toFloat()
+        _rollCorrectionDegrees.value = Math.toDegrees(smoothedRoll).toFloat()
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}

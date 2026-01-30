@@ -1,0 +1,102 @@
+[
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.speedwall.overlay.app-debug-59:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.speedwall.overlay.app-main-61:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.speedwall.overlay.app-debug-59:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.speedwall.overlay.app-main-61:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.speedwall.overlay.app-debug-59:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.speedwall.overlay.app-main-61:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/drawable_overlay.xml.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/drawable/overlay.xml"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/drawable_grid.xml.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/drawable/grid.xml"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/drawable_labels.xml.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/drawable/labels.xml"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-debug-59:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/mk/.gradle/daemon/8.13/com.speedwall.overlay.app-main-61:/mipmap-mdpi/ic_launcher.png"
+    }
+]
