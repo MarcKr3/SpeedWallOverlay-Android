@@ -72,6 +72,7 @@ import com.speedwall.overlay.camera.CameraManager
 import com.speedwall.overlay.sensor.MotionManager
 import com.speedwall.overlay.state.AppMode
 import com.speedwall.overlay.state.AppState
+import androidx.compose.runtime.withFrameMillis
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -393,7 +394,11 @@ fun OverlayScreen(
                                 showControls = false
                                 showColorPicker = false
                                 coroutineScope.launch {
-                                    delay(100)
+                                    // Wait for Compose to recompose with controls removed
+                                    withFrameMillis { }
+                                    // Wait one more frame for the render to reach the surface
+                                    withFrameMillis { }
+                                    delay(50) // buffer for surface compositor flush
                                     takeScreenshotPixelCopy(context) { flash ->
                                         showFlash = flash
                                     }

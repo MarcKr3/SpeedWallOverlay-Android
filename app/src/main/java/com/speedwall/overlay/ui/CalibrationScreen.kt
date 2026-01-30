@@ -1,5 +1,6 @@
 package com.speedwall.overlay.ui
 
+import java.util.Locale
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -314,7 +315,7 @@ fun CalibrationScreen(appState: AppState) {
                 enter = fadeIn(), exit = fadeOut()
             ) {
                 Text(
-                    text = String.format("%.1f px/m", pixelsPerMeter),
+                    text = String.format(Locale.US, "%.1f px/m", pixelsPerMeter),
                     color = Color.White,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.SemiBold,
