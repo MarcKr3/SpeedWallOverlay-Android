@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="1500dp"
+    android:viewportWidth="300"
+    android:viewportHeight="1500"
+    android:tint="?attr/colorControlNormal">
+    <!-- Placeholder: Speed climbing wall holds pattern -->
+    <!-- Left route holds -->
+    <path android:fillColor="#FF000000" android:pathData="M80,50 A15,15,0,1,1,80.01,50Z" />
+    <path android:fillColor="#FF000000" android:pathData="M120,150 A15,15,0,1,1,120.01,150Z" />
+    <path android:fillColor="#FF000000" android:pathData="M70,280 A15,15,0,1,1,70.01,280Z" />
+    <path android:fillColor="#FF000000" android:pathData="M130,400 A15,15,0,1,1,130.01,400Z" />
+    <path android:fillColor="#FF000000" android:pathData="M90,530 A15,15,0,1,1,90.01,530Z" />
+    <path android:fillColor="#FF000000" android:pathData="M140,660 A15,15,0,1,1,140.01,660Z" />
+    <path android:fillColor="#FF000000" android:pathData="M75,790 A15,15,0,1,1,75.01,790Z" />
+    <path android:fillColor="#FF000000" android:pathData="M125,920 A15,15,0,1,1,125.01,920Z" />
+    <path android:fillColor="#FF000000" android:pathData="M85,1050 A15,15,0,1,1,85.01,1050Z" />
+    <path android:fillColor="#FF000000" android:pathData="M135,1180 A15,15,0,1,1,135.01,1180Z" />
+    <path android:fillColor="#FF000000" android:pathData="M100,1300 A15,15,0,1,1,100.01,1300Z" />
+    <!-- Right route holds -->
+    <path android:fillColor="#FF000000" android:pathData="M220,100 A15,15,0,1,1,220.01,100Z" />
+    <path android:fillColor="#FF000000" android:pathData="M180,230 A15,15,0,1,1,180.01,230Z" />
+    <path android:fillColor="#FF000000" android:pathData="M230,360 A15,15,0,1,1,230.01,360Z" />
+    <path android:fillColor="#FF000000" android:pathData="M170,490 A15,15,0,1,1,170.01,490Z" />
+    <path android:fillColor="#FF000000" android:pathData="M210,620 A15,15,0,1,1,210.01,620Z" />
+    <path android:fillColor="#FF000000" android:pathData="M190,750 A15,15,0,1,1,190.01,750Z" />
+    <path android:fillColor="#FF000000" android:pathData="M225,880 A15,15,0,1,1,225.01,880Z" />
+    <path android:fillColor="#FF000000" android:pathData="M175,1010 A15,15,0,1,1,175.01,1010Z" />
+    <path android:fillColor="#FF000000" android:pathData="M215,1140 A15,15,0,1,1,215.01,1140Z" />
+    <path android:fillColor="#FF000000" android:pathData="M195,1270 A15,15,0,1,1,195.01,1270Z" />
+    <path android:fillColor="#FF000000" android:pathData="M200,1400 A15,15,0,1,1,200.01,1400Z" />
+    <!-- Top finish bar -->
+    <path android:fillColor="#FF000000" android:pathData="M50,1450 L250,1450 L250,1480 L50,1480 Z" />
+</vector>

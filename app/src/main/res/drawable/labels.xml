@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="1500dp"
+    android:viewportWidth="300"
+    android:viewportHeight="1500"
+    android:tint="?attr/colorControlNormal">
+    <!-- Distance label markers along left side -->
+    <path android:fillColor="#FF000000" android:pathData="M5,95 L25,95 L25,105 L5,105 Z" />
+    <path android:fillColor="#FF000000" android:pathData="M5,195 L25,195 L25,205 L5,205 Z" />
+    <path android:fillColor="#FF000000" android:pathData="M5,295 L25,295 L25,305 L5,305 Z" />
+    <path android:fillColor="#FF000000" android:pathData="M5,495 L25,495 L25,505 L5,505 Z" />
+    <path android:fillColor="#FF000000" android:pathData="M5,995 L25,995 L25,1005 L5,1005 Z" />
+    <path android:fillColor="#FF000000" android:pathData="M5,1495 L30,1495 L30,1500 L5,1500 Z" />
+    <!-- Tick marks every meter on right side -->
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,100 L300,100" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,200 L300,200" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,300 L300,300" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,400 L300,400" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,500 L300,500" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,600 L300,600" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,700 L300,700" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,800 L300,800" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,900 L300,900" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,1000 L300,1000" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,1100 L300,1100" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,1200 L300,1200" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,1300 L300,1300" />
+    <path android:strokeColor="#FF000000" android:strokeWidth="1" android:pathData="M290,1400 L300,1400" />
+</vector>
