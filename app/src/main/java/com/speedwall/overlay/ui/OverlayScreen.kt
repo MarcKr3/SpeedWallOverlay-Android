@@ -56,6 +56,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
@@ -200,6 +201,7 @@ fun OverlayScreen(
                     .requiredWidth(with(density) { renderedWidth.toDp() })
                     .requiredHeight(with(density) { renderedHeight.toDp() })
                     .graphicsLayer {
+                        transformOrigin = TransformOrigin(0.5f, 1.0f)
                         translationX = offsetX + dragOffsetX
                         translationY = offsetY + dragOffsetY
                         rotationZ = if (autoLevel) rollCorrection else 0f
